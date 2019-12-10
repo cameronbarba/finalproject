@@ -1,0 +1,36 @@
+
+<h3>Add new division:</h3>
+<form id="adddivision" action="/divisions" method="post">
+    Division Name: <input type="text" name="name" required><br>  
+    <input type="submit" value="Add">
+ </form>
+<br/>
+
+
+<form id='filter_coaches' action='' method=''>
+    <label> Filter by team </label>
+    <select id='team_filter' name="team"> 
+        {{#each assistteams}}
+        <option value="{{teamID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    <input type="button" value="Filter" onclick="filtercoachesbyteam()">
+</form>
+<br>
+<br>
+<h3>Divisions:</h3>
+<table>
+    <thead> 
+        <th>Name</th> 
+    </thead> 
+    <tbody> 
+        {{#each divisions}}  
+        <tr> 
+            <td>{{name}}</td> 
+            <td><button onclick="deleteDivisions({{divisionID}})">Delete</button></td>
+            <td><a href="/divisions/{{divisionID}}">Update</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+

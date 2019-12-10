@@ -1,0 +1,17 @@
+<html>
+<h1>Update {{rivalry.t1Name}}/{{rivalry.t2Name}} Rivalry:</h1>
+<form id="update-rivalry" action="/rivalries" method="put">
+    Team 1: <select name="team1ID" id="team1ID"> 
+        {{#each teams}}
+            <option value="{{teamID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Team 2: <select name="team2ID" id="team2ID"> 
+        {{#each teams}}
+            <option value="{{teamID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+<button onclick="updateRivalry({{rivalry.team1ID}},{{rivalry.team2ID}})">Update</button>
+
+
+</html>

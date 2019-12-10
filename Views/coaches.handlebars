@@ -1,0 +1,71 @@
+
+<h3>Add new head coach:</h3>
+<form id="addcoach" action="/coaches" method="post">
+    First name: <input type="text" name="firstName" required><br>
+    Last name: <input type="text" name="lastName" required><br>
+    Team: <select name="team" required> 
+        {{#each teams}}
+        <option value="{{teamID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Role: <select name="role">
+        <option value="Head">Head Coach</option>
+    </select><br>
+    Tenure: <input type="number" name="tenure" step="1" min="0" required><br>
+    <input type="submit" value="Add">
+ </form>
+<br/>
+
+
+<h3>Add new assistant coach:</h3>
+<form id="addassistantcoach" action="/coaches" method="post">
+    First name: <input type="text" name="firstName" required><br>
+    Last name: <input type="text" name="lastName" required><br>
+    Team: <select name="team" required> 
+        {{#each assistteams}}
+        <option value="{{teamID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Role: <select name="role">
+        <option value="Assistant">Assistant Coach</option>
+    </select><br>
+    Tenure: <input type="number" name="tenure" step="1" min="0" required><br>
+    <input type="submit" value="Add">
+ </form>
+<br/>
+
+<form id='filter_coaches' action='' method=''>
+    <label> Filter by team </label>
+    <select id='team_filter' name="team"> 
+        {{#each assistteams}}
+        <option value="{{teamID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    <input type="button" value="Filter" onclick="filtercoachesbyteam()">
+</form>
+<br>
+<br>
+<h3>Current coaches:</h3>
+<table>
+    <thead> 
+        <th>First Name</th> 
+        <th>Last Name</th> 
+        <th>Role</th>
+        <th>Tenure</th> 
+        <th>Team</th> 
+    </thead> 
+    <tbody> 
+        {{#each coaches}}  
+        <tr> 
+            <td>{{firstName}}</td> 
+            <td>{{lastName}}</td> 
+            <td>{{role}}</td> 
+            <td>{{tenure}}</td>
+            <td>{{name}}</td>
+            <td><button onclick="deleteCoach({{coachID}})">Delete</button></td>
+            <td><a href="/coaches/{{coachID}}">Update</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+

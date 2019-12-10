@@ -1,0 +1,23 @@
+<html>
+<h1>Update {{coach.firstName}} {{coach.lastName}}:</h1>
+<form id="update-coach" action="/coaches" method="post">
+    First name: <input type="text" name="firstName" value="{{coach.firstName}}" required><br>
+    Last name: <input type="text" name="lastName" value="{{coach.lastName}}" required><br>
+    
+
+
+    Team: <select name="team" id="teamID"> 
+        {{#each assistteams}}
+            <option value="{{teamID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Role: <select name="role">
+        <option value="Head">Head Coach</option>
+        <option value="Assistant">Assistant Coach</option>
+    </select><br>
+    Tenure: <input type="number" name="tenure" min="0" value="{{coach.tenure}}" required><br>
+</form>
+<button onclick="updateCoach({{coach.coachID}})">Update</button>
+
+
+</html>

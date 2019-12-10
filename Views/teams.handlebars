@@ -1,0 +1,59 @@
+<html>
+<h3>Add new players:</h3>
+<form id="addplayer" action="/players" method="post">
+    Name: <input type="text" name="name" required><br>
+    Location: <input type="text" name="location" required><br>
+    Mascot: <input type="text" name="mascot" required><br>
+    Jersey Color: <input type="text" name="jerseyColor" required><br>
+    Division: <select name="division">
+       {{#each divisions}}
+       <option value="{{divisionID}}">{{name}}</option>
+       {{/each}}
+    <select><br>
+    
+    <input type="submit" value="Add">
+ </form>
+<br/>
+
+<form id='filter_players' action='/players' method='get'>
+    <label> Filter by division</label>
+    <select id='division_filter' name="division"> 
+        {{#each division}}
+        <option value="{{divisionID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    <input type="button" value="Filter" onclick="filterplayersbydivision()">
+</form>
+
+<form id='search_players' action='' method=''>
+    <label> Search players for first name starting with:</label>
+    <input id='first_name_search_string' type='text' name='first_name_search_string' value=''>
+    <input type="button" value="Search" onclick="searchplayer()">
+</form>
+<br>
+<br>
+
+<h3>Teams:</h3>
+<table>
+    <thead> 
+        <th>Name</th> 
+        <th>Location</th> 
+        <th>Mascot</th>
+        <th>Jersey Colors</th>
+        <th>Division</th>  
+    </thead> 
+    <tbody>
+        {{#each teams}}
+        <tr> 
+            <td>{{name}}</td> 
+            <td>{{location}}</td> 
+            <td>{{mascot}}</td> 
+            <td>{{jerseycolor}}</td>
+            <td>{{name}}</td>
+            <td><button onclick="deletePlayer({{playerID}})">Delete</button></td>
+            <td><a href="/players/{{playerID}}">Update</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+</html>

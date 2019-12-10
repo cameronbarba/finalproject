@@ -1,0 +1,25 @@
+<html>
+<h1>Update {{player.firstName}} {{player.lastName}}:</h1>
+<form id="update-player" action="/players" method="post">
+    First name: <input type="text" name="firstName" value="{{player.firstName}}" required><br>
+    Last name: <input type="text" name="lastName" value="{{player.lastName}}" required><br>
+    
+    Team: <select name="team" id="teamID"> 
+        {{#each teams}}
+            <option value="{{teamID}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Height: <input type="number" name="height" value="{{player.height}}" min="0" required><br>
+    Weight: <input type="number" name="weight" value="{{player.weight}}" min="0" required><br>
+    Position: <select name="position">
+       <option value="PG">PG</option>
+       <option value="SG">SG</option>
+       <option value="SF">SF</option>
+       <option value="PF">PF</option>
+       <option value="C">C</option>
+    </select><br>
+</form>
+<button onclick="updatePlayer({{player.playerID}})">Update</button>
+
+
+</html>

@@ -1,0 +1,10 @@
+<html>
+<h1>Update {{division.name}}:</h1>
+<form id="update-division" action="/divisions" method="post">
+    Division Name: <input type="text" name="name" value="{{division.name}}" required><br>
+  
+</form>
+<button onclick="updateDivision({{division.divisionID}})">Update</button>
+
+
+</html>

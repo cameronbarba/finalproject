@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<title>NBA Western Conference</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+		a {
+			color: #0000EE;
+		}
+		.menu {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			height: 10vh;
+		}
+		.menu-links {
+			padding: 2%;
+		}
+		
+		h1 {
+			text-align: center;
+		}
+		table {
+			text-align: center;
+			padding: 1%;
+		}
+		td {
+			outline: 1px solid black;
+			padding: 10px;
+		}
+		
+</style>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    	{{#each jsscripts}}
+    	<script src="/static/{{this}}"></script>
+    	{{/each}} 
+</head>
+<body>
+	<header class="menu">
+		<a href="/home" class="menu-links">Home</a>
+		<a href="/divisions" class="menu-links">Divisions</a>
+		<a href="/teams" class="menu-links">Teams</a>
+		<a href="/players" class="menu-links">Players</a>
+		<a href="/coaches" class="menu-links">Coaches</a>
+		<a href="/rivalries" class="menu-links">Rivalries</a>
+	</header>
+
+	{{{body}}}
+</body>
+</html>
